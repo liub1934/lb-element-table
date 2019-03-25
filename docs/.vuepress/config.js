@@ -14,8 +14,7 @@ module.exports = {
       '/zh/': {
         label: '简体中文',
         selectText: '选择语言',
-        nav: [
-          {
+        nav: [{
             text: '主页',
             link: '/zh/'
           },

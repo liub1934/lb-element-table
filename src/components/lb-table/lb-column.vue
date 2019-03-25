@@ -28,7 +28,7 @@
     :formatter="column.formatter"
     :show-overflow-tooltip="column.showOverflowTooltip || false"
     :align="column.align || align"
-    :header-align="column.headerAlign || column.align || align"
+    :header-align="column.headerAlign || headerAlign || column.align || align"
     :class-name="column.className"
     :label-class-name="column.labelClassName"
     :selectable="column.selectable"
@@ -51,14 +51,6 @@
       </template>
     </template>
 
-    <!-- <template slot-scope="props">
-      <lb-render v-if="column.type === 'expand'"
-        :prop-column="column"
-        :scope="props"
-        :render="column.expandRender">
-      </lb-render>
-    </template> -->
-
     <template slot-scope="scope">
       <template v-if="column.formatter">
         {{ scope.column.formatter(scope.row, scope.column, scope.row, scope.$index) }}
@@ -72,6 +64,7 @@
         {{ scope.row[column.prop] }}
       </template>
     </template>
+
     <template v-if="column.children">
       <lb-column v-for="(col, index) in column.children"
         :key="index"
@@ -94,15 +87,10 @@ export default {
   components: {
     LbRender
   },
-  created() {
+  created () {
     if (this.column.type) {
       this.column.renderHeader = forced[this.column.type].renderHeader
       this.column.render = this.column.render || forced[this.column.type].renderCell
-    }
-  },
-  methods: {
-    ceshi(scope) {
-      console.log(scope)
     }
   }
 }

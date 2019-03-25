@@ -12,7 +12,7 @@ export default {
         nativeOn-click={ (event) => event.stopPropagation() }
         value={ store.isSelected(row) }
         disabled={ column.selectable ? !column.selectable.call(null, row, $index) : false }
-        on-input={ () => { store.commit('rowSelectedChanged', row); } } />
+        on-input={ () => { store.commit('rowSelectedChanged', row) } } />
     },
     sortable: false,
     resizable: false
@@ -22,11 +22,11 @@ export default {
       return <span>{propColumn.label || '#'}</span>
     },
     renderCell: (h, { $index, column }) => {
-      let i = $index + 1;
+      let i = $index + 1
       const index = column.index
 
       if (typeof index === 'number') {
-        i = $index + index;
+        i = $index + index
       } else if (typeof index === 'function') {
         i = index($index)
       }

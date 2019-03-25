@@ -25,9 +25,10 @@ export default {
             label: '操作',
             renderHeader: (h, scope) => {
               return <el-input
-                      v-model={ this.search }
+                      value={ this.search }
                       size="mini"
-                      placeholder="输入关键字搜索"/>
+                      placeholder="输入关键字搜索"
+                      onInput={ (val) => { this.search = val } }/>
             },
             render: (h, scope) => {
               return (

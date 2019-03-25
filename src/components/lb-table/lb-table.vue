@@ -10,15 +10,16 @@
 
 <template>
   <div class="bl-table">
-    <el-table ref="elTable" v-bind="$attrs"
+    <el-table ref="elTable"
+      v-bind="$attrs"
       v-on="$listeners"
       :data="data"
       :span-method="this.merge ? this.mergeMethod : this.spanMethod">
-      <lb-column
-        v-for="(item, index) in column"
+      <lb-column v-for="(item, index) in column"
         :key="index"
         :column="item"
-        :align="align">
+        :align="align"
+        :header-align="headerAlign">
       </lb-column>
     </el-table>
     <el-pagination class="lb-table-pagination"
@@ -37,6 +38,10 @@ export default {
     column: Array,
     data: Array,
     align: {
+      type: String,
+      default: 'left'
+    },
+    headerAlign: {
       type: String,
       default: 'left'
     },
@@ -86,9 +91,6 @@ export default {
     clearSort () {
       this.$refs.elTable.clearSort()
     },
-    clearFilter () {
-      this.$refs.elTable.clearFilter()
-    },
     clearFilter (columnKey) {
       this.$refs.elTable.clearFilter(columnKey)
     },
@@ -102,18 +104,18 @@ export default {
       if (!merge) return
       this.mergeLine = {}
       this.mergeIndex = {}
-      merge.forEach((item, k) =>{
-        tableData.forEach((data, i) =>{
+      merge.forEach((item, k) => {
+        tableData.forEach((data, i) => {
           if (i === 0) {
             this.mergeIndex[item] = this.mergeIndex[item] || []
-            this.mergeIndex[item].push(1) 
+            this.mergeIndex[item].push(1)
             this.mergeLine[item] = 0
           } else {
             if (data[item] === tableData[i - 1][item]) {
               this.mergeIndex[item][this.mergeLine[item]] += 1
               this.mergeIndex[item].push(0)
             } else {
-              this.mergeIndex[item].push(1) 
+              this.mergeIndex[item].push(1)
               this.mergeLine[item] = i
             }
           }
@@ -123,7 +125,7 @@ export default {
     mergeMethod ({ row, column, rowIndex, columnIndex }) {
       const index = this.merge.indexOf(column.property)
       if (index > -1) {
-        const _row = this.mergeIndex[this.merge[index]][rowIndex] 
+        const _row = this.mergeIndex[this.merge[index]][rowIndex]
         const _col = _row > 0 ? 1 : 0
         return {
           rowspan: _row,

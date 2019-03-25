@@ -166,11 +166,26 @@
   }
   table {
     margin: 0;
+    display: table;
   }
   th,
   td,
   tr {
     border: 0;
+  }
+}
+.el-popper {
+  table {
+    margin: 0;
+    display: table;
+  }
+  th,
+  td,
+  tr {
+    border: 0;
+  }
+  tr:nth-child(2n) {
+    background: none;
   }
 }
 </style>
