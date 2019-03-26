@@ -9,7 +9,7 @@
  */
 
 <template>
-  <div class="bl-table">
+  <div class="lb-table">
     <el-table ref="elTable"
       v-bind="$attrs"
       v-on="$listeners"
@@ -37,14 +37,8 @@ export default {
   props: {
     column: Array,
     data: Array,
-    align: {
-      type: String,
-      default: 'left'
-    },
-    headerAlign: {
-      type: String,
-      default: 'left'
-    },
+    align: String,
+    headerAlign: String,
     spanMethod: Function,
     pagination: {
       type: Boolean,
@@ -145,9 +139,3 @@ export default {
 }
 
 </script>
-
-<style>
-.lb-table-pagination {
-  margin-top: 20px;
-}
-</style>
