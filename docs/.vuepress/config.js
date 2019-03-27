@@ -21,6 +21,10 @@ module.exports = {
           {
             text: '指南',
             link: '/zh/guide/'
+          },
+          {
+            text: '个人小站',
+            link: 'https://liub37.com'
           }
         ]
       }
