@@ -1,0 +1,8 @@
+language: node_js
+sudo: required
+node_js: stable
+before_install:
+  - chmod +x deploy.sh
+script:
+    - ./deploy.sh
+branch: master
