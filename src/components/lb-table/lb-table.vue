@@ -15,11 +15,10 @@
       v-on="$listeners"
       :data="data"
       :span-method="this.merge ? this.mergeMethod : this.spanMethod">
-      <lb-column v-for="(item, index) in column"
+      <lb-column v-bind="$attrs"
+        v-for="(item, index) in column"
         :key="index"
-        :column="item"
-        :align="align"
-        :header-align="headerAlign">
+        :column="item">
       </lb-column>
     </el-table>
     <el-pagination class="lb-table-pagination"
@@ -37,8 +36,6 @@ export default {
   props: {
     column: Array,
     data: Array,
-    align: String,
-    headerAlign: String,
     spanMethod: Function,
     pagination: {
       type: Boolean,
@@ -65,6 +62,11 @@ export default {
   },
   created () {
     this.getMergeArr(this.data, this.merge)
+  },
+  computed: {
+    dataLength () {
+      return this.data.length
+    }
   },
   methods: {
     clearSelection () {
@@ -129,10 +131,10 @@ export default {
     }
   },
   watch: {
-    merge (newVal) {
+    merge () {
       this.getMergeArr(this.data, this.merge)
     },
-    data (newData) {
+    dataLength () {
       this.getMergeArr(this.data, this.merge)
     }
   }
