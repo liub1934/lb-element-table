@@ -1,6 +1,6 @@
 # lb-element-table
 
-Live-Demo：[Go](https://github.liub37.com/lb-element-table/zh/guide/)
+Live-Demo：[Go](https://github.liubing.me/lb-element-table/zh/guide/)
 
 How to Use:
 
