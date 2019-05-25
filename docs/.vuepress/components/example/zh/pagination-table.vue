@@ -11,7 +11,7 @@
     :total="100"
     :page-size="pageSize"
     @size-change="handleSizeChange"
-    @current-change="handleCurrentChange">
+    @p-current-change="handleCurrentChange">
   </lb-table>
 </template>
 

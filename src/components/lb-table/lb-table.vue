@@ -25,6 +25,7 @@
       v-if="pagination"
       v-bind="$attrs"
       v-on="$listeners"
+      @current-change="paginationCurrentChange"
       :style="{ 'margin-top': paginationTop, 'text-align': paginationAlign }">
     </el-pagination>
   </div>
@@ -95,6 +96,9 @@ export default {
     },
     sort (prop, order) {
       this.$refs.elTable.sort(prop, order)
+    },
+    paginationCurrentChange (val) {
+      this.$emit('p-current-change', val)
     },
     getMergeArr (tableData, merge) {
       if (!merge) return
