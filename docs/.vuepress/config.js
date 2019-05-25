@@ -24,7 +24,7 @@ module.exports = {
           },
           {
             text: '个人小站',
-            link: 'https://liub37.com'
+            link: 'https://liubing.me'
           }
         ]
       }

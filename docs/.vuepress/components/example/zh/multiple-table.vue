@@ -3,7 +3,7 @@
     <lb-table ref="multipleTable"
       :column="tableData.column"
       :data="tableData.data"
-      @current-change="handleSelectionChange">
+      @selection-change="handleSelectionChange">
     </lb-table>
     <div style="margin-top: 20px">
       <el-button @click="toggleSelection([tableData.data[1], tableData.data[2]])">切换第二、第三行的选中状态</el-button>

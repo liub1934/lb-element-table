@@ -160,6 +160,16 @@ sidebar: auto
   <<< @/docs/.vuepress/components/example/zh/render-table.vue
 </demo-block>
 
+### 树形数据与懒加载
+2.8.0+版本支持树形表格
+
+<demo-block>
+  <example-zh-tree-table slot="source"></example-zh-tree-table>
+  用法同`el-table`，必须要指定 `row-key`。支持子节点数据异步加载。设置 Table 的 lazy 属性为 true 与 加载函数 load ，指定 row 中的 hasChildren 来确定哪些行是包含子节点。
+
+  <<< @/docs/.vuepress/components/example/zh/tree-table.vue
+</demo-block>
+
 ### 自定义表头
 表头支持自定义。
 
@@ -207,7 +217,7 @@ sidebar: auto
 ## 扩展使用
 
 ### 表格分页
-多行或多列共用一个数据时，可以合并行或列。
+表格支持开启分页显示
 
 <demo-block>
   <example-zh-pagination-table slot="source"></example-zh-pagination-table>
@@ -217,11 +227,11 @@ sidebar: auto
 </demo-block>
 
 ### 表格动态合并
-可以动态合并相关列
+支持表格动态合并
 
 <demo-block>
   <example-zh-merge-table slot="source"></example-zh-merge-table>
-  `lb-table`上配置`merge`,`merge`为一个包含需要合并的列名`prop`的数组，配置后会自动将值相同的项自动合并。
+  `lb-table`上配置`merge`,`merge`为一个包含需要合并的`column`中`prop`的数组，配置后会自动将值相同的项自动合并。
 
   <<< @/docs/.vuepress/components/example/zh/merge-table.vue
 </demo-block>

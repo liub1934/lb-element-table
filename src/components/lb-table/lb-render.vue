@@ -17,7 +17,7 @@ export default {
     render: Function
   },
   render: (h, ctx) => {
-    return ctx.props.render(h, ctx.props.scope, ctx.props.propColumn)
+    return ctx.props.render ? ctx.props.render(h, ctx.props.scope, ctx.props.propColumn) : ''
   }
 }
 </script>

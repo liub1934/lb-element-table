@@ -26,7 +26,7 @@
       <transition name="text-slide">
         <span v-show="hovering">{{ controlText }}</span>
       </transition>
-      <el-tooltip effect="dark"
+      <!-- <el-tooltip effect="dark"
         :content="langConfig['tooltip-text']"
         placement="right">
         <transition name="text-slide">
@@ -38,7 +38,7 @@
             {{ langConfig['button-text'] }}
           </el-button>
         </transition>
-      </el-tooltip>
+      </el-tooltip> -->
     </div>
   </div>
 </template>
@@ -212,7 +212,6 @@ export default {
 
     },
     scrollHandler () {
-      console.log(1)
       const { top, bottom, left } = this.$refs.meta.getBoundingClientRect()
       this.fixedControl = bottom > document.documentElement.clientHeight &&
           top + 44 <= document.documentElement.clientHeight
