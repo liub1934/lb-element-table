@@ -12,12 +12,11 @@ export default {
   name: 'LbRender',
   functional: true,
   props: {
-    propColumn: Object,
     scope: Object,
     render: Function
   },
   render: (h, ctx) => {
-    return ctx.props.render ? ctx.props.render(h, ctx.props.scope, ctx.props.propColumn) : ''
+    return ctx.props.render ? ctx.props.render(h, ctx.props.scope) : ''
   }
 }
 </script>

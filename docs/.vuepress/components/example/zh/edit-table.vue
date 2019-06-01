@@ -14,20 +14,20 @@ export default {
             prop: 'date',
             label: '日期',
             width: '150',
-            render: (h, scope, propColumn) => {
+            render: (h, scope) => {
               return (
                 <div>
                   {
                     scope.row._edit
                       ? <el-date-picker
-                        value={ scope.row[propColumn.prop] }
+                        value={ scope.row[scope.column.property] }
                         type="date"
                         value-format="yyyy-MM-dd"
                         placeholder="选择日期"
                         style="width: 140px"
-                        onInput={ (val) => { scope.row[propColumn.prop] = val } }>
+                        onInput={ (val) => { scope.row[scope.column.property] = val } }>
                       </el-date-picker>
-                      : <span>{ scope.row[propColumn.prop] }</span>
+                      : <span>{ scope.row[scope.column.property] }</span>
                   }
                 </div>
               )
@@ -36,13 +36,13 @@ export default {
           {
             prop: 'name',
             label: '姓名',
-            render: (h, scope, propColumn) => {
+            render: (h, scope) => {
               return (
                 <div>
                   {
                     scope.row._edit
-                      ? <el-input value={ scope.row[propColumn.prop] } onInput={ (val) => { scope.row[propColumn.prop] = val } }></el-input>
-                      : <span>{ scope.row[propColumn.prop] }</span>
+                      ? <el-input value={ scope.row[scope.column.property] } onInput={ (val) => { scope.row[scope.column.property] = val } }></el-input>
+                      : <span>{ scope.row[scope.column.property] }</span>
                   }
                 </div>
               )
@@ -51,15 +51,15 @@ export default {
           {
             prop: 'tag',
             label: '标签',
-            render: (h, scope, propColumn) => {
+            render: (h, scope) => {
               return (
                 <div>
                   {
                     scope.row._edit
                       ? (
-                        <el-select value={ scope.row[propColumn.prop] }
+                        <el-select value={ scope.row[scope.column.property] }
                           style="width: 80px"
-                          onChange={ (val) => { scope.row[propColumn.prop] = val } }>
+                          onChange={ (val) => { scope.row[scope.column.property] = val } }>
                           {
                             this.tagOptions.map(option => {
                               return (
@@ -69,7 +69,7 @@ export default {
                           }
                         </el-select>
                       )
-                      : <el-tag type={ scope.row.tag === '家' ? 'primary' : 'success'}>{ scope.row[propColumn.prop] }</el-tag>
+                      : <el-tag type={ scope.row.tag === '家' ? 'primary' : 'success'}>{ scope.row[scope.column.property] }</el-tag>
                   }
                 </div>
               )

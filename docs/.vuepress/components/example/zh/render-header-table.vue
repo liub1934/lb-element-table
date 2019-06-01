@@ -13,8 +13,8 @@ export default {
           {
             prop: 'date',
             label: '日期',
-            renderHeader: (h, scope, propColumn) => {
-              return <span><i class="el-icon-time">{ propColumn.label }</i></span>
+            renderHeader: (h, scope) => {
+              return <span><i class="el-icon-time">{ scope.column.label }</i></span>
             }
           },
           {

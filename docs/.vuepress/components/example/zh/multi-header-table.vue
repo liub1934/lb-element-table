@@ -16,8 +16,8 @@ export default {
             label: '日期',
             fixed: true,
             width: '120',
-            renderHeader: (h, scope, propColumn) => {
-              return <span><i class="el-icon-time"></i>{ propColumn.label }</span>
+            renderHeader: (h, scope) => {
+              return <span><i class="el-icon-time"></i>{ scope.column.label }</span>
             }
           },
           {
@@ -27,8 +27,8 @@ export default {
                 prop: 'name',
                 label: '姓名',
                 width: '120',
-                render: (h, scope, propColumn) => {
-                  return <el-tag>{ scope.row[propColumn.prop] }</el-tag>
+                render: (h, scope) => {
+                  return <el-tag>{ scope.row[scope.column.property] }</el-tag>
                 }
               },
               {
@@ -48,8 +48,8 @@ export default {
                     prop: 'address',
                     label: '地址',
                     width: '300px',
-                    renderHeader: (h, scope, propColumn) => {
-                      return <span><i class="el-icon-location-outline"></i>{ propColumn.label }</span>
+                    renderHeader: (h, scope) => {
+                      return <span><i class="el-icon-location-outline"></i>{ scope.column.label }</span>
                     }
                   }
                 ]

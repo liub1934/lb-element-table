@@ -18,8 +18,8 @@ export default {
     resizable: false
   },
   index: {
-    renderHeader: (h, scope, propColumn) => {
-      return <span>{propColumn.label || '#'}</span>
+    renderHeader: (h, scope) => {
+      return <span>{scope.column.label || '#'}</span>
     },
     renderCell: (h, { $index, column }) => {
       let i = $index + 1
@@ -36,8 +36,8 @@ export default {
     sortable: false
   },
   expand: {
-    renderHeader: (h, scope, propColumn) => {
-      return <span>{propColumn.label || ''}</span>
+    renderHeader: (h, scope) => {
+      return <span>{scope.column.label || ''}</span>
     },
     renderCell: (h, { row, store }, proxy) => {
       const expanded = store.states.expandRows.indexOf(row) > -1
