@@ -87,13 +87,13 @@ export default {
       }
     }
     if (!this.column.render) {
-      this.column.render = (h, scope, propColumn) => {
-        return <span>{ scope.row[propColumn.prop] }</span>
+      this.column.render = (h, scope) => {
+        return <span>{ scope.row[scope.column.property] }</span>
       }
     }
     if (!this.column.renderHeader) {
-      this.column.renderHeader = (h, scope, propColumn) => {
-        return <span>{ propColumn.label }</span>
+      this.column.renderHeader = (h, scope) => {
+        return <span>{ scope.column.label }</span>
       }
     }
   }
