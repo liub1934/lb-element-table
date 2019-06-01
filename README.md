@@ -1,6 +1,9 @@
 # lb-element-table
 
-Live-Demo：[Go](https://github.liubing.me/lb-element-table/zh/guide/)
+> 不要使用`propColumn`，现已删除，Demo一直未更新。<br>
+> Do not use `propColumn`, it has been deleted, the demo has not been updated
+
+Demo：[Go](https://github.liubing.me/lb-element-table/zh/guide/)
 
 How to Use:
 
