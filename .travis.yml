@@ -4,11 +4,9 @@ node_js:
   - "8.11.0"
 before_install:
   - chmod +x deploy.sh
-install:
-  - npm ci
 script:
   - ./deploy.sh
 branch: master
 cache:
   directories:
-    - "$HOME/.npm"
+    - node_modules
