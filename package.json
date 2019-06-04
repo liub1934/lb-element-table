@@ -10,7 +10,7 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "element-ui": "^2.8.2",
+    "element-ui": "^2.9.1",
     "highlight.js": "^9.15.6",
     "vue": "^2.6.6",
     "vue-highlight.js": "^3.1.0",

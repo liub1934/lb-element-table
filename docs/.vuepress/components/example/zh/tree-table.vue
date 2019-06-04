@@ -3,7 +3,10 @@
     <lb-table :column="tableData1.column"
       :data="tableData1.data"
       border
-      row-key="id">
+      row-key="id"
+      border
+      default-expand-all
+      :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
     </lb-table>
     <br />
     <lb-table :column="tableData1.column"
@@ -11,7 +14,8 @@
       row-key="id"
       border
       lazy
-      :load="load">
+      :load="load"
+      :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
     </lb-table>
   </div>
 </template>
@@ -108,21 +112,22 @@ export default {
     }
   },
   methods: {
-    load (tree, treeNode, resolve) {
-      resolve([
-        {
-          id: 31,
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        },
-        {
-          id: 32,
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }
-      ])
+    load(tree, treeNode, resolve) {
+      setTimeout(() => {
+        resolve([
+          {
+            id: 31,
+            date: '2016-05-01',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1519 弄'
+          }, {
+            id: 32,
+            date: '2016-05-01',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1519 弄'
+          }
+        ])
+      }, 1000)
     }
   }
 }
