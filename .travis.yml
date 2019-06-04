@@ -3,9 +3,11 @@ sudo: required
 node_js: stable
 before_install:
   - chmod +x deploy.sh
+install:
+  - npm ci
 script:
   - ./deploy.sh
 branch: master
 cache:
   directories:
-    - "node_modules"
+    - "$HOME/.npm"
