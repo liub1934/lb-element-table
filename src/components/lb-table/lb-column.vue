@@ -41,15 +41,15 @@
 
     <template slot="header"
       slot-scope="scope">
-      <lb-render :prop-column="column"
+      <lb-render v-if="column.renderHeader"
         :scope="scope"
         :render="column.renderHeader">
       </lb-render>
+      <span v-else>{{ scope.column.label }}</span>
     </template>
 
     <template slot-scope="scope">
-      <lb-render :prop-column="column"
-        :scope="scope"
+      <lb-render :scope="scope"
         :render="column.render">
       </lb-render>
     </template>
@@ -76,25 +76,30 @@ export default {
   components: {
     LbRender
   },
-  created () {
-    if (this.column.type) {
-      this.column.renderHeader = forced[this.column.type].renderHeader
-      this.column.render = this.column.render || forced[this.column.type].renderCell
-    }
-    if (this.column.formatter) {
-      this.column.render = (h, scope) => {
-        return <span>{ scope.column.formatter(scope.row, scope.column, scope.row, scope.$index) }</span>
+  methods: {
+    setColumn () {
+      if (this.column.type) {
+        this.column.renderHeader = forced[this.column.type].renderHeader
+        this.column.render = this.column.render || forced[this.column.type].renderCell
+      }
+      if (this.column.formatter) {
+        this.column.render = (h, scope) => {
+          return <span>{ scope.column.formatter(scope.row, scope.column, scope.row, scope.$index) }</span>
+        }
+      }
+      if (!this.column.render) {
+        this.column.render = (h, scope) => {
+          return <span>{ scope.row[scope.column.property] }</span>
+        }
       }
     }
-    if (!this.column.render) {
-      this.column.render = (h, scope) => {
-        return <span>{ scope.row[scope.column.property] }</span>
-      }
-    }
-    if (!this.column.renderHeader) {
-      this.column.renderHeader = (h, scope) => {
-        return <span>{ scope.column.label }</span>
-      }
+  },
+  watch: {
+    column: {
+      handler () {
+        this.setColumn()
+      },
+      immediate: true
     }
   }
 }
